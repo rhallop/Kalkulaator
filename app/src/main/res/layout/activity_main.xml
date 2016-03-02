@@ -1,16 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.raido.myapplication.MainActivity">
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tere, Raido" />
-</RelativeLayout>
+        android:orientation="horizontal">
+
+
+
+
+    </RelativeLayout>
+
+    <android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textnumbers"
+            style="@style/text_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_heightPercent="25%"
+            app:layout_widthPercent="100%"
+            android:text="0"
+            android:gravity="bottom|right"
+           />
+
+        <Button
+            android:id="@+id/buttonac"
+            android:text="C"
+            style="@style/button_game"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_below="@id/textnumbers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <Button
+            android:id="@+id/buttonpm"
+            style="@style/button_game"
+            android:layout_alignTop="@id/buttonac"
+            android:layout_toRightOf="@id/buttonac"
+            android:text="+/-"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/buttonper"
+            style="@style/button_game"
+            android:layout_alignTop="@id/buttonpm"
+            android:layout_toRightOf="@id/buttonpm"
+            android:text="%"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/buttondiv"
+            style="@style/button_game"
+            android:layout_alignTop="@id/buttonper"
+            android:layout_toRightOf="@id/buttonper"
+            android:text="/"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/button7"
+            style="@style/button_game"
+            android:layout_below="@id/buttonac"
+            android:text="7"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/button8"
+            style="@style/button_game"
+            android:layout_alignTop="@id/button7"
+            android:layout_toRightOf="@id/button7"
+            android:text="8"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/button9"
+            style="@style/button_game"
+            android:layout_alignTop="@id/button8"
+            android:layout_toRightOf="@id/button8"
+            android:text="9"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/buttonx"
+            style="@style/button_game"
+            android:layout_alignTop="@id/button9"
+            android:layout_toRightOf="@id/button9"
+            android:text="x"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <Button
+            android:id="@+id/button4"
+            style="@style/button_game"
+            android:layout_below="@id/button7"
+            android:text="4"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/button5"
+            style="@style/button_game"
+            android:layout_alignTop="@id/button4"
+            android:layout_toRightOf="@id/button4"
+            android:text="5"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/button6"
+            style="@style/button_game"
+            android:layout_alignTop="@id/button5"
+            android:layout_toRightOf="@id/button5"
+            android:text="6"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/buttonmin"
+            style="@style/button_game"
+            android:layout_alignTop="@id/button6"
+            android:layout_toRightOf="@id/button6"
+            android:text="-"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/button1"
+            style="@style/button_game"
+            android:layout_below="@id/button4"
+            android:text="1"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/button_game"
+            android:layout_alignTop="@id/button1"
+            android:layout_toRightOf="@id/button1"
+            android:text="2"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/button3"
+            style="@style/button_game"
+            android:layout_alignTop="@id/button2"
+            android:layout_toRightOf="@id/button2"
+            android:text="3"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/buttonplus"
+            style="@style/button_game"
+            android:layout_alignTop="@id/button3"
+            android:layout_toRightOf="@id/button3"
+            android:text="+"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/button0"
+            android:layout_below="@id/button1"
+            style="@style/button_game"
+            android:text="0"
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="50%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/buttoncoma"
+            style="@style/button_game"
+            android:layout_alignTop="@id/button0"
+            android:layout_toRightOf="@id/button0"
+            android:text=","
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/buttoneq"
+            style="@style/button_game"
+            android:layout_alignTop="@id/buttoncoma"
+            android:layout_toRightOf="@id/buttoncoma"
+            android:text="="
+            app:layout_heightPercent="15%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+</LinearLayout>
