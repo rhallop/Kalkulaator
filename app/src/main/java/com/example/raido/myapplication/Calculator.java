@@ -1,5 +1,7 @@
 package com.example.raido.myapplication;
 
+import android.view.View;
+
 /**
  * Created by Raido on 9.03.2016.
  */
@@ -12,10 +14,12 @@ public class Calculator {
     public int abix;
     public int abiy;
     public int sumlast;
-    public String arvx;
-    public String arvy;
+    //public String arvx;
+    //public String arvy;
     public String lastoperand;
-    public int lastpressedoperand;
+    //public int lastpressedoperand;
+    public String lastnumber;
+    public String lastaction;
 
     public Calculator()
     {
@@ -25,9 +29,11 @@ public class Calculator {
         abix = 0;
         abiy = 0;
         sumlast = 0;
-        arvx="";
-        arvy="";
+      //  arvx="";
+        //arvy="";
         lastoperand = "";
+        lastnumber ="";
+        lastaction="";
     }
 
     public void setX(Float x){
