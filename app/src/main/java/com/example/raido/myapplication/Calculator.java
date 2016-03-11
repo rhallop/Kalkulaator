@@ -1,7 +1,5 @@
 package com.example.raido.myapplication;
 
-import android.view.View;
-
 /**
  * Created by Raido on 9.03.2016.
  */
@@ -14,10 +12,7 @@ public class Calculator {
     public int abix;
     public int abiy;
     public int sumlast;
-    //public String arvx;
-    //public String arvy;
-    public String lastoperand;
-    //public int lastpressedoperand;
+    public String lastoperator;
     public String lastnumber;
     public String lastaction;
 
@@ -29,9 +24,7 @@ public class Calculator {
         abix = 0;
         abiy = 0;
         sumlast = 0;
-      //  arvx="";
-        //arvy="";
-        lastoperand = "";
+        lastoperator = "";
         lastnumber ="";
         lastaction="";
     }
@@ -52,17 +45,13 @@ public class Calculator {
         return this.y=y;
     }
 
-    public void setTotal(Float total){ this.total = total;}
+   // public void setTotal(Float total){ this.total = total;}
 
-    public Float getTotal() {return this.total = total;}
+    //public Float getTotal() {return this.total = total;}
 
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
+    //public void setOperator(String operator) {this.operator = operator;}
 
-    public String getOperator() {
-        return this.operator;
-    }
+    //public String getOperator() {return this.operator;}
 
     public float addition(float x, float y)
     {

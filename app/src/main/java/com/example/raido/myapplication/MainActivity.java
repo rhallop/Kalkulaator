@@ -6,10 +6,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-
-import java.sql.Savepoint;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
     private static final String STATE_ACTION = "last action";
     private static final String STATE_NUMBER = "last number on screen";
-    private static final String STATE_OPERAND = "last operand";
+    private static final String STATE_OPERATOR = "last operator";
     private static final String STATE_X = "last x";
 
     @Override
@@ -31,12 +28,9 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             calc.lastaction= savedInstanceState.getString(STATE_ACTION);
             calc.lastnumber=savedInstanceState.getString(STATE_NUMBER);
-            calc.lastoperand = savedInstanceState.getString(STATE_OPERAND);
+            calc.lastoperator = savedInstanceState.getString(STATE_OPERATOR);
             calc.setX(savedInstanceState.getFloat(STATE_X));
             screen.setText(calc.lastnumber);
-            Log.d(TAG, "SavedInstance action: "+ savedInstanceState.getString(STATE_ACTION));
-            Log.d(TAG, "SavedInstance number: "+savedInstanceState.getString(STATE_NUMBER));
-            Log.d(TAG, "SavedInstance operand: "+savedInstanceState.getString(STATE_OPERAND));
 
         }
     }
@@ -48,11 +42,9 @@ public class MainActivity extends AppCompatActivity {
         }
         savedInstanceState.putString(STATE_ACTION, calc.lastaction);
         savedInstanceState.putString(STATE_NUMBER, calc.lastnumber);
-        savedInstanceState.putString(STATE_OPERAND, calc.lastoperand);
-        savedInstanceState.putFloat(STATE_X,calc.getX());
-
-        Log.d(TAG, "onSaveInstanceState called action: " + ":" + calc.lastaction);
-        Log.d(TAG, "onSaveInstanceState called number: "+":"+calc.lastnumber);
+        Log.d(TAG, "onSaveInstanceState calc.lastnumber: " +calc.lastnumber);
+        savedInstanceState.putString(STATE_OPERATOR, calc.lastoperator);
+        savedInstanceState.putFloat(STATE_X, calc.getX());
 
         super.onSaveInstanceState(savedInstanceState);
     }
@@ -75,11 +67,6 @@ public class MainActivity extends AppCompatActivity {
         TextView screen = (TextView) findViewById(R.id.textnumbers);
         screen.setText(bvalue);
 
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG, "Button pressed: " + bvalue);
-            Log.d(TAG, "Saved X value: " + calc.getX());
-            Log.d(TAG, "Saved Y value: " + calc.getY());
-        }
 
         if(calc.lastaction!="number")
         {
@@ -88,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if
-                (calc.lastnumber.toString().length() < 10){
+                (calc.lastnumber.toString().length() < 10 ){
             calc.lastnumber = calc.lastnumber + bvalue.toString();
             screen.setText(calc.lastnumber);
         }
@@ -106,38 +93,30 @@ public class MainActivity extends AppCompatActivity {
 
         switch(calc.lastaction) {
             case ("operate"):
-                calc.lastoperand=bvalue;
+                calc.lastoperator =bvalue;
                 break;
             case ("equals"):
-                calc.lastoperand=bvalue;
+                calc.lastoperator =bvalue;
                 break;
 
             case ("number"):
                 if (calc.sumlast ==0) {
                     calc.setX(Float.parseFloat(calc.lastnumber));
-                    calc.lastnumber= "";
+                    //calc.lastnumber= "";
                     calc.sumlast = 1;
-                    calc.lastoperand = bvalue;
+                    calc.lastoperator = bvalue;
                 }else{
                     calc.setY(Float.parseFloat(calc.lastnumber));
-                    calc.lastnumber=Float.toString(calc.calc(calc.lastoperand));
-
-                    if (BuildConfig.DEBUG) {
-                        //Log.d(TAG, "Button pressed: " + bvalue);
-                        Log.d(TAG, "Operate X value: " + calc.getX());
-                        Log.d(TAG, "Operate Y value: " + calc.getY());
-                    }
+                    calc.lastnumber=Float.toString(calc.calc(calc.lastoperator));
 
                     calc.setX(Float.parseFloat(calc.lastnumber));
                     screen.setText(calc.lastnumber);
-                    calc.lastoperand=bvalue;
+                    calc.lastoperator =bvalue;
                 }
                 break;
 
 
         }
-
-
 
         calc.lastaction="operate";
 
@@ -152,12 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 calc.setY(Float.parseFloat(calc.lastnumber));
 
 
-            calc.lastnumber = Float.toString(calc.calc(calc.lastoperand));
-
-            Log.d(TAG, "Equals X value: " + calc.getX());
-            Log.d(TAG, "Equals Y value: " + calc.getY());
-            Log.d(TAG, "Equals last operand: " + calc.lastoperand);
-            Log.d(TAG, "Equals lastnumber: " + calc.lastnumber);
+            calc.lastnumber = Float.toString(calc.calc(calc.lastoperator));
 
             calc.setX(Float.parseFloat(calc.lastnumber));
             screen.setText(calc.lastnumber);
@@ -177,11 +151,6 @@ public class MainActivity extends AppCompatActivity {
         calc.setX(Float.parseFloat("0"));
         calc.setY(Float.parseFloat("0"));
 
-        if (BuildConfig.DEBUG) {
-            //Log.d(TAG, "Button pressed: " + bvalue);
-            Log.d(TAG, "Saved X value: " + calc.getX());
-            Log.d(TAG, "Saved Y value: " + calc.getY());
-        }
 
     }
 }
